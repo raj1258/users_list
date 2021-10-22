@@ -40,7 +40,7 @@ export default {
     },
     computed: {
         filteredUsers() {
-            const res = this.searchText.length ? users.filter(user => {
+            return this.searchText.length ? users.filter(user => {
                 let found = false;
                 Object.values(user).forEach(value => {
                     if (value.toLowerCase().includes(this.searchText.toLowerCase())) {
@@ -50,7 +50,6 @@ export default {
                 })
                 return found;
             }) : users;
-            return res;
         },
     },
     methods: {

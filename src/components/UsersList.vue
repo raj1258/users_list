@@ -42,9 +42,11 @@ export default {
         }
     },
     computed: {
+        indexedUsers() {
+            return this.users.map((user, index) => ({...user, index}));
+        },
         visibleUsers() {
-            return this.users
-                .map((user, index) => ({...user, index}))
+            return this.indexedUsers
                 .filter((user, index) => index >= this.startIndex && index <= this.endIndex);
         },
         virtualListHeight() {
